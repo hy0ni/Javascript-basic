@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number guessing game</title>
+  <style>
+    body {
+      width: 50%;
+      max-width: 800px;
+      min-width: 480px;
+      margin: 0 auto;
+      height: 100vh;
+    }
+
+    .form input[type="number"] {
+      width: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Number guessing game</h1>
+
+  <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. We'll tell you if your guess was too high or too low.
+    <!-- 1에서 100 사이의 임의의 숫자를 선택했습니다. 10턴 이하로 추측할 수 있는지 확인해 보세요. 귀하의 추측이 너무 높거나 너무 낮은 경우 알려드리겠습니다. -->
+  </p>
+
+  <div class="form">
+    <label for="guessField">Enter a guess: </label>
+    <input type="number" min="1" max="100" required id="guessField" class="guessField">
+    <input type="submit" value="Submit guess" class="guessSubmit">
+  </div>
+
+  <div class="resultParas">
+    <p class="guesses"></p>
+    <p class="lastResult"></p>
+    <p class="lowOrHi"></p>
+  </div>
+
+  <script>
+    /*
+    1과 100 사이의 무작위 숫자를 생성하기.
+    플레이어의 현재 턴을 기록하기. 1부터 시작.
+    플레이어가 정답을 추측할 수 있는 방법을 제공.
+    플레이어가 자신의 추측 기록을 확인할 수 있도록, 제출하는 수를 먼저 어딘가에 기록하기.
+    그 후, 제출한 수가 정답인지 확인.
+    만약 정답이라면...
+    축하 메시지 보여주기.
+    이후에 플레이어가 다른 숫자를 제출하면 게임이 망가질 수 있으므로 제출을 막기.
+    게임을 다시 시작할 수 있는 컨트롤 보여주기.
+    만약 오답이고 아직 플레이어 턴이 남아있다면...
+    오답임을 알려주고 제출한 숫자가 너무 높았는지 아니면 너무 낮았는지 보여주기.
+    다른 숫자의 제출을 허용하기.
+    턴 숫자를 1 늘리기.
+    만약 오답인데 플레이어 턴이 남아있지 않다면...
+    플레이어에게 게임이 끝났음을 알려주기.
+    이후에 플레이어가 다른 숫자를 제출하면 게임이 망가질 수 있으므로 제출을 막기.
+    게임을 다시 시작할 수 있는 컨트롤 보여주기.
+    게임을 다시 시작하면 게임 로직과 UI를 완전히 초기화하고 1번으로 돌아가기.
+    */
+
+    //이 문제를 해결하기 위해 이 줄이 어떻게 작동하는지 살펴봅시다. 먼저 Math.random()을 호출하여 0과 1 사이의 0.5675493843와 같은 임의의 수를 생성합니다.
+    // 다음으로, Math.random()을 호출한 결과를 Math.floor()에 전달하고, 전달된 숫자를 가장 가까운 정수로 반올림합니다. 그런 다음 그 결과에 1을 더합니다.
+    //0과 1 사이의 무작위 수를 버림하면 결과는 항상 0이니, 여기에 1을 더한 결과는 항상 1입니다. 무작위 수를 버림하기 전에 먼저 100을 곱해야 원하는 숫자를 얻을 수 있을 겁니다. 다음 코드는 0부터 99까지의 무작위 수를 생성합니다.
+    //따라서 여기에 1을 더하면 1과 100 사이의 수를 얻을 수 있습니다.
+
+    let randomNum = Math.floor(Math.random() * 100) + 1;
+
+    const $guessField = document.querySelector('.guessField');
+    const $submitBtn = document.querySelector('.guessSubmit');
+
+    const $guesses = document.querySelector('.guesses');
+    const $lastResult = document.querySelector('.lastResult');
+    const $lowOrHi = document.querySelector('.lowOrHi');
+
+    let guessCount = 1;
+    let resetBtn;
+
+    function checkGuess() {
+      const userGuess = Number($guessField.value);
+      if (guessCount === 1) {
+        $guesses.textContent = '이전 숫자: ';
+      }
+      $guesses.textContent += userGuess + ' ';
+
+      if (userGuess === randomNum) {
+        $lastResult.textContent = '축하합니다! 정답입니다!'
+        $lastResult.style.backgroundColor = 'yellowgreen';
+        $lowOrHi.textContent = '';
+        setGameOver();
+      } else if (guessCount === 10) {
+        $lastResult.textContent = '게임 오버! 게임을 다시 시작하세요';
+        $lastResult.style.backgroundColor = 'red';
+        $lowOrHi.textContent = '';
+        setGameOver();
+      } else {
+        $lastResult.textContent = 'Wrong!'
+        $lastResult.style.backgroundColor = '#ff6948';
+        if (userGuess > randomNum) {
+          $lowOrHi.textContent = '입력값보다 작습니다.';
+        } else if (userGuess < randomNum) {
+          $lowOrHi.textContent = '입력값보다 큽니다.';
+
+        }
+      }
+      guessCount++;
+      $guessField.value = '';
+      $guessField.focus();
+    }
+
+    function setGameOver() {
+      $guesses.disabled = true;
+      $lastResult.disabled = true;
+      $lowOrHi.disabled = true;
+      resetBtn = document.createElement('button');
+      resetBtn.textContent = 'new game';
+      document.body.appendChild(resetBtn);
+      resetBtn.addEventListener('click', resetGame);
+    }
+
+    function resetGame() {
+      guessCount = 1;
+      const resetParas = document.querySelectorAll('.resultParas p');
+      for (const resetPara of resetParas) {
+        resetPara.textContent = '';
+      }
+      resetBtn.parentNode.removeChild(resetBtn);
+      $guesses.disabled = false;
+      $lastResult.disabled = false;
+      $lowOrHi.disabled = false;
+      $guessField.value = '';
+      $guessField.focus();
+      randomNum = Math.floor(Math.random() * 100) + 1;
+    }
+
+    $submitBtn.addEventListener('click', checkGuess);
+  </script>
+</body>
+
+</html>
