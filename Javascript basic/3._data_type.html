@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>변수에 저장할 수 있는 data type</title>
+</head>
+
+<body>
+  <script>
+    // 숫자
+    let age = 20;
+
+    const infinity = 1 / 0; // 양의 무한대
+    const negativeInfinity = -1 / 0; // 음의 무한대
+    const nAn = 'not a number' / 2; // 산술 연산 불가(not-a-number)
+    console.log(infinity); // Infinity
+    console.log(negativeInfinity); // -Infinity
+    console.log(nAn); // NaN
+
+    // 문자열
+    let name = "hyoni";
+
+    // 불리언(Booleans)
+    let test1 = true;
+    let test2 = 6 < 3;
+
+    console.log(test1); // true
+    console.log(test2); // false
+
+    // 배열
+    let array1 = ["hyoni", "Bob", "Jimi"];
+    let array2 = [10, 15, 20];
+
+    console.log(array1[0]); // hyoni
+    console.log(array2[1]); // 15
+
+    // 객체
+    let person = {
+      name: "Bob",
+      hobby: "study"
+    };
+    console.log(person.name); // Bob
+    console.log(person.hobby); // study
+
+    // null
+    let nothing = null;
+    console.log(`value: ${nothing}, type: ${typeof nothing}`);
+    // 아무것도 아닌 값이야 라고 지정해줌
+
+    // undefined
+    let x; // let x = undefined
+    console.log(`value: ${x}, type: ${typeof x}`);
+    // 선언은 되었지만 값이 지정되어있지 않음
+
+    // symbol, create unique identifiers for objects
+    const symbol1 = Symbol('id');
+    const symbol2 = Symbol('id');
+    console.log(symbol1 === symbol2); // false 동일한지 아닌지 검사
+    // 심볼은 동일한 스트링을 작성했어도 다른 심볼로 만들어지기 때문에 주어지는 스트링에 상관없이 고유한 식별자를 만들때 사용되어 집니다.
+    const gSymbol1 = Symbol.for('id');
+    const gSymbol2 = Symbol.for('id');
+    console.log(gSymbol1 === gSymbol2); // true
+    console.log(symbol1); // 심볼은 바로 출력하게 될 경우 console.log(symbol1); error가 발생하게 됩니다.
+    console.log(`value: ${symbol1.description}, type: ${typeof symbol1}`); //value: id, type: symbol
+    // 스트링이 동일할 경우 동일한 심볼을 만들고 싶다면 
+    // Symbol.for()을 사용해 주어진 스트링에 맞는 동일한 심볼을 만들수 있습니다.
+    // 그러므로 항상 .description을 이용하여 스트링으로 변환 후 출력해야 합니다.
+
+    // 5. Dynamic typing: dynamically typed language
+    // JavaScript는 동적 유형을 갖춘 동적 언어입니다.
+    // JavaScript의 변수는 특정 값 유형과 직접 연관되지 않으며
+    // 모든 변수에는 모든 유형의 값이 할당(및 재할당)될 수 있습니다.
+    // 변수를 선언할 때 어떤 타입인지 선언하지 않고
+    // 프로그램이 동작할 때 할당된 값에 따라서 타입이 변경 될 수 있습니다.
+
+    let text = 'hello';
+    console.log(text.charAt(0)); //h (charAt(0) => index 0번째 출력)
+    console.log(`value: ${text}, type: ${typeof text}`); // value: hello, type: string
+
+    text = 1;
+    console.log(`value: ${text}, type: ${typeof text}`); // value: 1, type: number
+
+    text = '7' + 5; // 문자열에 +가 있으면 숫자5를 string으로 변환하여 문자열7과 변환된 문자 5가 더해져 75가 되고 type은 string이 됩니다.
+    console.log(`value: ${text}, type: ${typeof text}`); // value: 75, type: string
+
+    text = '8' / '2';
+    console.log(`value: ${text}, type: ${typeof text}`); // value: 4, type: number
+    /*
+    스트링과 스트링을 나누게 되면 자바스크립트 엔진이 스트링은 나눌 수 없다고 판단합니다.
+    그래서 스트링 안에 있는 값이 실제로 숫자값인 것을 파악하고 
+    나누기 연산자를 사용하기 위해 스트링을 숫자로 변환하여 연산합니다.
+    즉 8 / 2가 되기 때문에 값은 4가되고 type은 number가 됩니다.
+    */
+
+    <ul class="border-box">
+      <li>number</li>
+      <li>string</li>
+      <li>boolean</li>
+      <li>null</li>
+      <li>undefined</li>
+      <li>array</li>
+      <li>object</li>
+      <li>symbol(ES6에서 추가)</li>
+      <li>동적 타이핑(Dynamic typing)</li>
+    </ul>
+
+
+  </script>
+</body>
+
+</html>

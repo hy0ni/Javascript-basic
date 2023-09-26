@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>scope</title>
+</head>
+
+<body>
+  <script>
+    // let 블록 스코프
+    let name = "global name";
+    {
+      let name = "block name"
+      console.log(name); // block name
+    }
+    console.log(name); // global name
+
+
+    //const 블록 스코프
+    const name1 = "global name";
+    {
+      const name1 = "block name"
+      console.log(name1); // block name
+    }
+    console.log(name1); // global name
+
+
+    // var 함수 블록 스코프
+    var hello = 'global hello!'
+    function sayHello() {
+      var hello = 'function hello!';
+      console.log(hello);
+    }
+    sayHello(); // function hello!
+    console.log(hello); // global hello!
+
+    
+    var hello = 'hello';
+    if (true) {
+      var hello = 'hello hello hello';
+    }
+    console.log(hello); // hello hello hello
+
+  </script>
+</body>
+
+</html>

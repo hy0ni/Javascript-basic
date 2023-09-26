@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>operator(연산자)</title>
+</head>
+
+<body>
+  <script>
+    // 1. String concatenation (문자열 연결하기)
+    // + 기호를 사용하여 문자열과 문자열을 더해 새로운 문자열을 만들 수 있습니다.
+    // console.log('my' + ' cat'); //my cat
+    // 문자열에 숫자를 더하게 되면 숫자가 문자열로 변환되어 새로운 문자열을 만들 수 있습니다.
+    console.log('1' + 2); // 12
+    // 백틱``기호를 활용하여 템플릿 리터럴값으로 만들 수 있습니다.
+    console.log(`string literals: 1 + 2 = ${1 + 2}`); //string literals: 1 + 2 = 3
+    console.log(`string literals: 1 + 2 = ${1 + 2}`); //string literals: 1 + 2 = 3
+
+    // 2. Numeric operators (숫자 연산자)
+    console.log(1 + 1); // add(추가)
+    console.log(1 - 1); // substract(빼기)
+    console.log(1 / 1); // divide(나누기)
+    console.log(1 * 1); // multiply(곱하기)
+    console.log(5 % 2); // remainder(나머지)
+    console.log(2 ** 3); // exponentiation(지수)
+
+
+    // 3. Increment and decrement operators
+    {
+      // 후위 증가
+      let x = 3;
+      const y = x++;
+
+      console.log(x); // x = 4
+      console.log(y); // y = 3
+    }
+    {
+      //전위 증가
+      let x = 3;
+      const y = ++x;
+
+      console.log(x); // x = 4
+      console.log(y); // y = 4
+    }
+
+    {
+      // 후위 감소
+      let x = 3;
+      const y = x--;
+
+      console.log(x); // x = 2
+      console.log(y); // y = 3
+    }
+    {
+      //전위 감소
+      let x = 3;
+      const y = --x;
+
+      console.log(x); // x = 2
+      console.log(y); // y = 2
+    }
+
+    // let count = 3;
+    // const preIncrement = ++count;
+    // // count = count + 1;
+    // // preIncrement = count;
+    // console.log(`preIncrement: ${preIncrement}, count: ${count}`);
+    // //preIncrement: 4, count: 4
+
+    // // const postIncrement = count++;
+    // const postIncrement = count;
+    // count = count + 1;
+    // console.log(`postIncrement: ${postIncrement}, count: ${count}`);
+    // // postIncrement: 4, count: 5
+
+
+    // const preDecrement = --count;
+    // console.log(`preDecrement: ${preDecrement}, count: ${count}`);
+    // // preDecrement: 4, count: 4
+
+    // const postDecrement = count--;
+    // console.log(`postDecrement: ${postDecrement}, count: ${count}`);
+    // // postDecrement: 4, count: 3
+
+
+    // 4. Assignment operators (할당 연산자)
+    let x = 3;
+    let y = 6;
+    x += y; // x = x + y;
+    x -= y;
+    x *= y;
+    x /= y;
+
+    // 5. Comparison operators (비교 연산자)
+    console.log(10 < 5); // 보다 작음
+    console.log(10 <= 5); // 작거나 같음
+    console.log(10 > 5); // 보다 큰
+    console.log(10 >= 5); // 보다 크거나 같음
+
+    // 6. Logical operators: || (or), && (and), ! (not) (논리 연산자)
+    const value1 = true;
+    const value2 = 4 < 2;
+
+    // || (or), finds the first truthy value
+    console.log(`or: ${value1 || value2 || check()}`); // or: true
+    // 3개중에 하나라도 true면 true로 계산이 되는 연산자 입니다.
+    // true or 4가 2보다 작니?(false) or check함수는 쓸 데 없이 시간을 좀 낭비하다가 결국 true를 return하는 함수입니다.
+
+    // && (and), finds the first falsy value
+    console.log(`and: ${value1 && value2 && check()}`); // and: false
+
+    // often used to compress long if-statement
+    // (긴 if 문을 압축하는 데 자주 사용됩니다.)
+    // nullableObject && nullableObject.something
+    // if (nullableObject != null) {
+    //   nullableObject.something;
+    // }
+
+
+    function check() {
+      for (let i = 0; i < 10; i++) {
+        //wasting time
+        console.log('😱');
+      }
+      return true;
+    }
+
+    // ! (not)
+    console.log(!value1); //false
+
+    // 7. Equality
+    const stringFive = '5';
+    const numberFive = 5;
+
+    // // == loose equality, with type conversion
+    console.log(stringFive == numberFive); //true
+    console.log(stringFive != numberFive); //false
+
+    // // === strict equality, no type conversion
+    console.log(stringFive === numberFive); // false
+    console.log(stringFive !== numberFive); // true
+
+    // object equality by reference
+    const hyoni1 = { name: 'hyoni' };
+    const hyoni2 = { name: 'hyoni' };
+    const hyoni3= hyoni1;
+    console.log(hyoni1 == hyoni2); // false
+    console.log(hyoni1 === hyoni2); // false
+    console.log(hyoni1 === hyoni3); //true
+
+    // equality - puzzler
+    console.log(0 == false); //true
+    console.log(0 === false); // false
+    console.log('' == false); // true
+    console.log('' === false); // false
+    console.log(null == undefined); //true
+    console.log(null === undefined); // false
+
+    // 8. Conditional operators: if (조건부 연산자)
+    // if, else if, else
+    const name = 'df';
+    if (name === 'hyoni') {
+      console.log('Welcome, hyoni!');
+    } else if (name === 'coder') {
+      console.log('You are amazing coder');
+    } else {
+      console.log('unkwnon');
+    }
+
+    // 9. Ternary operator: ? (삼항 연산자)
+    // condition ? value1 : value2;
+    console.log(name === 'hyoni' ? 'yes' : 'no'); //no
+
+
+    // 10. Switch statement
+    // use for multiple if checks
+    // use for enum-like value check
+    // use for multiple type checks in TS
+    const browser = 'IE';
+    switch (browser) {
+      case 'IE':
+        console.log('go away!');
+        break;
+      case 'Chrome':
+      case 'Firefox':
+        console.log('love you!');
+        break;
+      default:
+        console.log('same all!');
+        break;
+    }
+
+    // 11. Loops
+    // while loop, while the condition is truthy,
+    // body code is executed.
+    let i = 3;
+    while (i > 0) {
+      console.log(`while: ${i}`);
+      i--;
+    }
+
+    // do while loop, body code is executed first,
+    // then check the condition.
+    do {
+      console.log(`do while: ${i}`);
+      i--;
+    } while (i > 0);
+
+    // for loop, for(begin; condition; step)
+    for (i = 3; i > 0; i--) {
+      console.log(`for: ${i}`);
+    }
+
+    for (let i = 3; i > 0; i = i - 2) {
+      // inline variable declaration
+      console.log(`inline variable for: ${i}`);
+    }
+
+    // nested loops
+    for (let i = 0; i < 10; i++) {
+      for (let j = 0; j < 10; j++) {
+        console.log(`i: ${i}, j:${j}`);
+      }
+    }
+
+    // break, continue
+    // Q1. iterate from 0 to 10 and print only even numbers (use continue)
+    for (let i = 0; i < 11; i++) {
+      if (i % 2 === 0) {
+        continue;
+      }
+      console.log(`q1. ${i}`);
+    }
+
+    // Q2. iterate from 0 to 10 and print numbers until reaching 8 (use break)
+    for (let i = 0; i < 11; i++) {
+      if (i > 8) {
+        break;
+      }
+      console.log(`q2. ${i}`);
+    }
+  </script>
+</body>
+
+</html>
