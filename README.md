@@ -15,3 +15,4 @@ Javascript basic
 - 배열 | 배열 생성, 배열의 참조, 배열 요소 추가, 배열 순회, 배열 객체, 배열 메소드 [12_basic.js](/Javascript%20basic/js/12_basic.js)
 - 배열의 활용 | 희소 배열, 다차원 배열, 연관 배열, 문자열을 배열처럼 접근하기, 자바스크립트에서 배열 여부 확인 [13_basic.js](/Javascript%20basic/js/13_basic.js)
 - 함수 | 함수 정의, return문, 함수 호출, 값으로서의 함수[14_basic.js](/Javascript%20basic/js/14_basic.js)
+- 변수의 유효 범위 | 지역 변수, 전역 변수[15_basic.js](/Javascript%20basic/js/15_basic.js)
