@@ -17,3 +17,4 @@ Javascript basic
 - 함수 | 함수 정의, return문, 함수 호출, 값으로서의 함수[14_basic.js](/Javascript%20basic/js/14_basic.js)
 - 변수의 유효 범위 | 지역 변수, 전역 변수[15_basic.js](/Javascript%20basic/js/15_basic.js)
 - 함수의 유효 범위 | 함수 호이스팅, var를 지양해야 하는 이유 [15_basic.js](/Javascript%20basic/js/15_basic.js)
+- 매개변수와 인수 | 매개변수(parameter), 인수(argument), arguments 객체, 디폴트 매개변수,  나머지 매개변수 [16_basic.js](/Javascript%20basic/js/16_basic.js)
