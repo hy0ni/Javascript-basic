@@ -13,3 +13,4 @@ Javascript basic
 - 반복문 | while, do/while, for, for/in, for/of, Set 객체 [10_basic.js](/Javascript%20basic/js/10_basic.js)
 - 루프의 제어 | label, continue, break [11_basic.js](/Javascript%20basic/js/11_basic.js)
 - 배열 | 배열 생성, 배열의 참조, 배열 요소 추가, 배열 순회, 배열 객체, 배열 메소드 [12_basic.js](/Javascript%20basic/js/12_basic.js)
+- 배열의 활용 | 희소 배열, 다차원 배열, 연관 배열, 문자열을 배열처럼 접근하기, 자바스크립트에서 배열 여부 확인 [13_basic.js](/Javascript%20basic/js/13_basic.js)
