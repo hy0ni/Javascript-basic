@@ -22,3 +22,4 @@ Javascript basic
 - 객체(object) | 객체의 프로퍼티 참조, 객체의 메소드 참조 [19_basic.js](/Javascript%20basic/js/19_basic.js)
 - 객체의 생성 | 리터럴 표기, 생성자 함수, Object.create() [20_basic.js](/Javascript%20basic/js/20_basic.js)
 - 프로토타입(prototype) | 생성, 상속, 체인, 객체에 프로퍼티 및 메소드 추가, 프로토타입에 프로퍼티 및 메소드 추가, prototype 프로퍼티 [21_basic.js](/Javascript%20basic/js/21_basic.js)
+- this, 객체 프로퍼티의 삭제(delete), 객체 프로퍼티의 순회: Object.keys() / Object.getOwnPropertyNames(), 객체간의 비교  [22_basic.js](/Javascript%20basic/js/22_basic.js)
