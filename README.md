@@ -16,5 +16,6 @@ Javascript basic
 - 배열의 활용 | 희소 배열, 다차원 배열, 연관 배열, 문자열을 배열처럼 접근하기, 자바스크립트에서 배열 여부 확인 [13_basic.js](/Javascript%20basic/js/13_basic.js)
 - 함수 | 함수 정의, return문, 함수 호출, 값으로서의 함수[14_basic.js](/Javascript%20basic/js/14_basic.js)
 - 변수의 유효 범위 | 지역 변수, 전역 변수[15_basic.js](/Javascript%20basic/js/15_basic.js)
-- 함수의 유효 범위 | 함수 호이스팅, var를 지양해야 하는 이유 [15_basic.js](/Javascript%20basic/js/15_basic.js)
-- 매개변수와 인수 | 매개변수(parameter), 인수(argument), arguments 객체, 디폴트 매개변수,  나머지 매개변수 [16_basic.js](/Javascript%20basic/js/16_basic.js)
+- 함수의 유효 범위 | 함수 호이스팅, var를 지양해야 하는 이유 [16_basic.js](/Javascript%20basic/js/16_basic.js)
+- 매개변수와 인수 | 매개변수(parameter), 인수(argument), arguments 객체, 디폴트 매개변수,  나머지 매개변수 [17_basic.js](/Javascript%20basic/js/17_basic.js)
+- 미리 정의된 전역 함수(predefined functions) [18_basic.js](/Javascript%20basic/js/18_basic.js)
