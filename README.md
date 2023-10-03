@@ -19,3 +19,6 @@ Javascript basic
 - 함수의 유효 범위 | 함수 호이스팅, var를 지양해야 하는 이유 [16_basic.js](/Javascript%20basic/js/16_basic.js)
 - 매개변수와 인수 | 매개변수(parameter), 인수(argument), arguments 객체, 디폴트 매개변수,  나머지 매개변수 [17_basic.js](/Javascript%20basic/js/17_basic.js)
 - 미리 정의된 전역 함수(predefined functions) [18_basic.js](/Javascript%20basic/js/18_basic.js)
+- 객체(object) | 객체의 프로퍼티 참조, 객체의 메소드 참조 [19_basic.js](/Javascript%20basic/js/19_basic.js)
+- 객체의 생성 | 리터럴 표기, 생성자 함수, Object.create() [20_basic.js](/Javascript%20basic/js/20_basic.js)
+- 프로토타입(prototype) | 생성, 상속, 체인, 객체에 프로퍼티 및 메소드 추가, 프로토타입에 프로퍼티 및 메소드 추가, prototype 프로퍼티 [21_basic.js](/Javascript%20basic/js/21_basic.js)
